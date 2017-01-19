@@ -34,7 +34,11 @@ $ sudo add-apt-repository ppa:ondrej/php
 $ sudo apt-get update
 $ sudo apt-get install php7.0 
 $ sudo apt-get install php7.0-fpm
-
+$ sudo apt-get install php7.0-zip 
+$ sudo apt-get install mcrypt php7.0-mcrypt
+$ sudo apt-get upgrade
+$ sudo apt-get install php7.0-mbstring
+$ sudo apt-get install phpunit
 *************************************
 *        Configuration NGIXN        *
 *           ubuntu 14.04            * 
@@ -78,6 +82,35 @@ ctrl + x
 $ sudo nano /var/log/nginx/error.log
 
 *************************************
-*             Composer              *
+*          Install Composer         *
 *           ubuntu 14.04            * 
 *************************************
+
+$ sudo apt-get install curl
+
+$ echo ipv4 >> ~/.curlrc
+
+$ curl -sS https://getcomposer.org/installer | php
+
+$ sudo mv ~/composer.phar /usr/local/bin/composer
+
+*************************************
+*          Install Laravel          *
+*           ubuntu 14.04            * 
+*************************************
+$ composer global require "laravel/installer"
+
+$ sudo nano ~/.profile
+
+--Add to the end
+
+PATH="$PATH:~/.composer/vendor/bin"
+
+$ composer global update
+
+--Ex. /var/www/my_project
+$ laravel new my_project
+
+--OR
+$ composer create-project --prefer-dist laravel/laravel my_project
+
